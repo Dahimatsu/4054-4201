@@ -1,0 +1,6 @@
+{
+    "require": {
+        "flightphp/core": "^3.17",
+        "tracy/tracy": "^2.11"
+    }
+}
