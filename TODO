@@ -12,43 +12,43 @@ Elle souhaite mettre en place une application pour gérer tout cela.
 /* -------------------------------------------------------------------------- */
 
 ☐ Base de données PostGre
-    ☐ Création de la base de données
-    ☐ Création des tables
-        ☐ Table Chauffeur
-        ☐ Table Véhicule
-        ☐ Table Trajet
-    ☐ Insertion des données
+    ✔ Création de la base de données @done
+    ✔ Création des tables @done
+        ✔ Table Chauffeur @done
+        ✔ Table Véhicule @done
+        ✔ Table Trajet @done
+    ✔ Insertion des données @done
 ☐ Preparation du projet
     ☐ Structure du projet
-        ☐ Dossier app
-            ☐ Dossier config
-                ☐ Fichier config.php
-                ☐ Fichier services.php
-                ☐ Fichier routes.php
-                ☐ Fichier bootstrap.php
-            ☐ Dossier controllers
-            ☐ Dossier models
-        ☐ Dossier public
-            ☐ Fichier index.php
-            ☐ Dossier assets
-                ☐ Dossier css
-                ☐ Dossier js
-                ☐ Dossier images    
+        ✔ Dossier app @done
+            ✔ Dossier config @done
+                ✔ Fichier config.php @done
+                ✔ Fichier services.php @done
+                ✔ Fichier routes.php @done
+                ✔ Fichier bootstrap.php @done
+            ✔ Dossier controllers @done
+            ✔ Dossier models @done
+        ✔ Dossier public @done
+            ✔ Fichier index.php @done
+            ✔ Dossier assets @done
+                ✔ Dossier css @done
+                ✔ Dossier js @done
+                ✔ Dossier images @done
         ☐ Dossier views
-            ☐ Fichier accueil.php
-            ☐ Fichier layout.php (template de base avec header et footer)
+            ✔ Fichier accueil.php @done
+            ✔ Fichier layout.php (template de base avec header et footer) @done
     ☐ Framework
         ☐ FlightPHP
-            ☐ Installation de FlightPHP dans le dossier du projet
+            ✔ Installation de FlightPHP dans le dossier du projet @done
             ☐ Configuration de FlightPHP
-                ☐ Fichier config.php
-                    ☐ Assurer que ça return les informations pour la Connexion à la base de données
-                ☐ Fichier server.php
-                    ☐ Assurer que ça execute l'extenstion Tracy pour le débogage
-                    ☐ Assurer la connexion à la base de données
-                    ☐ Assuer l'enreistrement de la base de données dans Flight::db()
+                ✔ Fichier config.php @done
+                    ✔ Assurer que ça return les informations pour la Connexion à la base de données @done
+                ✔ Fichier server.php @done
+                    ✔ Assurer que ça execute l'extenstion Tracy pour le débogage @done
+                    ✔ Assurer la connexion à la base de données @done
+                    ✔ Assuer l'enreistrement de la base de données dans Flight::db() @done
                 ☐ Fichier routes.php
-                    ☐ Creation de la route pour l'index
+                    ✔ Creation de la route pour l'index @done
     ☐ Structure MVC
         ☐ Models
             ☐ Model Chauffeur
@@ -63,11 +63,11 @@ Elle souhaite mettre en place une application pour gérer tout cela.
             ☐ View Véhicule
             ☐ View Trajet
 ☐ Page d'Accueil
-    ☐ Lien pour afficher la liste des chauffeurs
+    ☐ Lien pour afficher la liste des chauffeurs 
         ☐ Creation de la vue pour afficher la liste des chauffeurs (chauffeurs.php)
         ☐ Creation du controller pour gérer l'affichage de la liste des chauffeurs
-        ☐ Creation du model pour interagir avec la table Chauffeur
-        ☐ Route pour afficher la liste des chauffeurs
+        ☐ Creation du model pour interagir avec la table Chauffeur @started(25-12-16 19:47)
+        ✔ Route pour afficher la liste des chauffeurs @done
     ☐ Lien pour afficher la liste des véhicules
         ☐ Creation de la vue pour afficher la liste des véhicules (véhicules.php)
         ☐ Creation du controller pour gérer l'affichage de la liste des véhicules

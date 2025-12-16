@@ -17,4 +17,8 @@ $router->group('', function (Router $router) use ($app) {
         $app->render('layout', ['page' => "accueil.php"]);
     });
 
+    $router->get('/chauffeur', function () use ($app) {
+        $app->render('layout', ['page' => "chauffeur.php"]);
+    });
+
 }, [SecurityHeadersMiddleware::class]);
