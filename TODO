@@ -44,9 +44,9 @@ Elle souhaite mettre en place une application pour gérer tout cela.
                 ✔ Fichier config.php @done
                     ✔ Assurer que ça return les informations pour la Connexion à la base de données @done
                 ✔ Fichier server.php @done
-                    ✔ Assurer que ça execute l'extenstion Tracy pour le débogage @done
+                    ✔ Assurer que ça execute l'extension Tracy pour le débogage @done
                     ✔ Assurer la connexion à la base de données @done
-                    ✔ Assuer l'enreistrement de la base de données dans Flight::db() @done
+                    ✔ Assurer l'enregistrement de la base de données dans Flight::db() @done
                 ☐ Fichier routes.php
                     ✔ Creation de la route pour l'index @done
     ☐ Structure MVC
@@ -64,9 +64,9 @@ Elle souhaite mettre en place une application pour gérer tout cela.
             ☐ View Trajet
 ☐ Page d'Accueil
     ☐ Lien pour afficher la liste des chauffeurs 
-        ☐ Creation de la vue pour afficher la liste des chauffeurs (chauffeurs.php)
-        ☐ Creation du controller pour gérer l'affichage de la liste des chauffeurs
-        ☐ Creation du model pour interagir avec la table Chauffeur @started(25-12-16 19:47)
+        ☐ Creation de la vue pour afficher la liste des chauffeurs (chauffeurs.php) @wip
+        ☐ Creation du controller pour gérer l'affichage de la liste des chauffeurs @done
+        ☐ Creation du model pour interagir avec la table Chauffeur @done
         ✔ Route pour afficher la liste des chauffeurs @done
     ☐ Lien pour afficher la liste des véhicules
         ☐ Creation de la vue pour afficher la liste des véhicules (véhicules.php)
