@@ -175,7 +175,8 @@ class CourseModel
     public function getRapport() {
         $DBH = $this->getDatabase();
 
-        $query = "";
+        $query = "SELECT * 
+                  FROM s3_rapport_course";
 
         try {
             $STH = $DBH->prepare($query);
