@@ -236,9 +236,9 @@ GROUP BY v.date_course;
 
 CREATE OR REPLACE VIEW v_rapport_journalier AS
 SELECT
-    rj.date_course,
-    rj.recette_totale,
-    dj.depense_totale,
-    (rj.recette_totale - dj.depense_totale) AS profit_net
+    rj.date_course AS date,
+    rj.recette_totale AS recette,
+    dj.depense_totale AS depense,
+    (rj.recette_totale - dj.depense_totale) AS benefice
 FROM v_recette_journaliere rj
 JOIN v_depense_journaliere dj ON rj.date_course = dj.date_course;
