@@ -11,7 +11,7 @@
 
             <div class="card-body">
 
-                <form action="/inserer-course" method="post" class="row g-3">
+                <form action="/course/inserer" method="post" class="row g-3">
 
                     <div class="col-md-6">
                         <label class="form-label">Conducteur</label>

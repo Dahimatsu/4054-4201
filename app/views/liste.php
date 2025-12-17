@@ -62,7 +62,7 @@
                             $badge  = $etat ? 'bg-warning text-dark' : 'bg-success';
 
                             $urlDetail    = "/course/detail/" . urlencode((string)$id);
-                            $urlEdit    = "/course/edit/" . urlencode((string)$id);
+                            $urlEdit    = "/course/modifier/" . urlencode((string)$id);
                             $urlValider = "/course/valider/" . urlencode((string)$id);
                         ?>
                         <tr>

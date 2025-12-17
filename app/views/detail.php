@@ -8,7 +8,7 @@
         </small>
     </div>
 
-    <a href="/courses/toutes" class="btn btn-outline-secondary">
+    <a href="/course/liste" class="btn btn-outline-secondary">
         <i class="bi bi-arrow-left"></i> Retour à la liste
     </a>
 </div>
@@ -107,7 +107,7 @@
 
 <div class="d-flex gap-2">
     <?php if (empty($course['heure_arrivee'])): ?>
-        <a href="/courses/edit/<?= urlencode($course['id_course']) ?>"
+        <a href="/courses/modifier/<?= urlencode($course['id_course']) ?>"
            class="btn btn-outline-primary">
             <i class="bi bi-pencil"></i> Modifier
         </a>
