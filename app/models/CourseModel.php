@@ -121,4 +121,8 @@ class CourseModel
         return null;
     }
 
+    // public function updateCourse($id, $course) {
+    //     $DBH = $this->
+    // }
+
 }
