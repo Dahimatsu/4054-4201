@@ -121,8 +121,57 @@ class CourseModel
         return null;
     }
 
-    // public function updateCourse($id, $course) {
-    //     $DBH = $this->
-    // }
+    public function updateCourse($id, $course) {
+        $DBH = $this->getDatabase();
 
+        $motoModel = new MotoModel($this->getDatabase());
+        $idMoto = $motoModel->getidMotoByConducteur($course['id_conducteur']);
+
+        $query = "UPDATE s3_course
+                  SET id_conducteur = ?,
+                      id_moto = ?,
+                      date_course = ?,
+                      lieu_depart = ?,
+                      heure_depart = ?,
+                      lieu_arrivee = ?,
+                      nb_kilometre = ?,
+                      prix_course = ?
+                  WHERE id_course = ?";
+        
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute([
+                $course['id_conducteur'],
+                $idMoto['id_moto'],
+                $course['date_course'],
+                $course['lieu_depart'],
+                $course['heure_depart'],
+                $course['lieu_arrivee'],
+                $course['nb_kilometre'],
+                $course['prix_course'],
+                $id
+            ]);
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+        return null;
+    }
+
+    public function validerCourse($id) {
+        $DBH = $this->getDatabase();
+
+        $query = "UPDATE s3_course
+                  SET heure_arrivee = CURRENT_TIME()
+                  WHERE id_course = ?";
+        
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute([$id]);
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+        return null;
+    }
 }
