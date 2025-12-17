@@ -15,16 +15,16 @@ class ChauffeurController
         $this->app = $app;
     }
 
-    public function getChauffeur()
+    public function getChauffeurs()
     {
         $chauffeurModel = new ChauffeurModel(Flight::db());
-        return $chauffeurModel->getChauffeur();
+        return $chauffeurModel->getChauffeurs();
     }
 
-    public function getChauffeurById($id)
+    public function getChauffeur($id)
     {
         $chauffeurModel = new ChauffeurModel(Flight::db());
-        $chauffeur = $chauffeurModel->getChauffeurById($id);
+        $chauffeur = $chauffeurModel->getChauffeur($id);
 
         if ($chauffeur != null) {
             return $chauffeur;

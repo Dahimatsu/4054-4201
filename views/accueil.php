@@ -8,7 +8,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">Gestion des chauffeurs</h5>
             <p class="card-text text-muted">Ajouter, modifier, supprimer des chauffeurs</p>
-            <a href="chauffeur.php" class="btn btn-primary w-100">Gérer</a>
+            <a href="chauffeurs" class="btn btn-primary w-100">Gérer</a>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">Gestion des voitures</h5>
             <p class="card-text text-muted">Ajouter, modifier, supprimer des voitures</p>
-            <a href="voiture.php" class="btn btn-primary w-100">Gérer</a>
+            <a href="voiture" class="btn btn-primary w-100">Gérer</a>
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">Gestion des trajets</h5>
             <p class="card-text text-muted">Ajouter, modifier, supprimer des trajets</p>
-            <a href="trajet.php" class="btn btn-primary w-100">Gérer</a>
+            <a href="trajet" class="btn btn-primary w-100">Gérer</a>
         </div>
     </div>
 </div>
