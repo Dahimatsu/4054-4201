@@ -25,7 +25,7 @@ if (!empty($coursesJour)) {
         <small class="text-muted">Recette • Dépenses • Bénéfice</small>
     </div>
 
-    <a href="/courses" class="btn btn-outline-secondary">
+    <a href="/" class="btn btn-outline-secondary">
         <i class="bi bi-arrow-left"></i> Retour
     </a>
 </div>
