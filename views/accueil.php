@@ -47,11 +47,6 @@
                         <input type="time" name="heure_depart" class="form-control" required>
                     </div>
 
-                    <div class="col-md-4">
-                        <label class="form-label">Heure arrivée</label>
-                        <input type="time" name="heure_arrivee" class="form-control" required>
-                    </div>
-
                     <div class="col-md-6">
                         <label class="form-label">Lieu de départ</label>
                         <input type="text" name="lieu_depart" class="form-control"
