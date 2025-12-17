@@ -67,7 +67,14 @@ $router->group('', function (Router $router) use ($app) {
         $router->get("/modifier/@id", function ($id) use ($app) {
             $courseController = new CourseController($app);
             $course = $courseController->getCourse($id);
-            $app->render('layout', ['page' => "modifier.php", 'course' => $course]);
+
+            $conducteurController = new ConducteurController($app);
+            $conducteurs = $conducteurController->getConducteurs();
+
+            $motoController = new MotoController($app);
+            $motos = $motoController->getMotos();
+
+            $app->render('layout', ['page' => "modifier.php", 'course' => $course, 'motos' => $motos, 'conducteurs' => $conducteurs]);
         });
 
         $router->post("/update/@id", function($id) use ($app) {
