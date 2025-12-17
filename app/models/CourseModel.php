@@ -49,7 +49,7 @@ class CourseModel
     public function getCourse($id) {
         $DBH = $this->getDatabase();
 
-        $query = "SELECT c.id_course, c.id_conducteur, c.date_course, c.lieu_depart, c.lieu_arrivee, c.heure_depart, c.heure_arrivee, c.nb_kilometre, c.prix_course,
+        $query = "SELECT c.id_course, c.id_conducteur, c.id_moto, c.date_course, c.lieu_depart, c.lieu_arrivee, c.heure_depart, c.heure_arrivee, c.nb_kilometre, c.prix_course,
                        m.marque, m.modele,
                        cd.nom, cd.prenom
                   FROM s3_course c
