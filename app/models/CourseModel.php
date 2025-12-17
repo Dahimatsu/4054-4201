@@ -176,7 +176,7 @@ class CourseModel
         $DBH = $this->getDatabase();
 
         $query = "SELECT * 
-                  FROM s3_rapport_course";
+                  FROM v_rapport_journalier";
 
         try {
             $STH = $DBH->prepare($query);
