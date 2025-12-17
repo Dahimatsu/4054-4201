@@ -49,7 +49,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'rapport') ? 'active' : '' ?>"
-                                href="/rapport-financier">
+                                href="/rapport">
                                 <i class="bi bi-graph-up-arrow me-1"></i> Rapport financier
                             </a>
                         </li>

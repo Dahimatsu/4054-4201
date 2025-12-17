@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/courses/liste"
+                <a href="/liste"
                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-card-list fs-1 text-success"></i>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/courses/nouvelle"
+                <a href="/nouvelle-course"
                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-plus-circle fs-1 text-warning"></i>

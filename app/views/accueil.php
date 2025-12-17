@@ -1,77 +1,70 @@
-<div class="row justify-content-center">
-    <div class="col-lg-8">
+<div class="text-center mb-5">
+    <h1 class="fw-bold display-5">
+        <i class="bi bi-bicycle me-2"></i>
+        Bienvenue sur <span class="text-primary">SpeedMoto</span>
+    </h1>
+    <p class="lead text-muted mt-3">
+        Application de gestion des activités Taxi-Moto
+    </p>
+</div>
 
-        <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">
-                    <i class="bi bi-plus-circle me-1"></i>
-                    Nouvelle course
-                </h5>
-            </div>
+<div class="row g-4 justify-content-center">
 
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center">
             <div class="card-body">
-
-                <form action="/inserer-course" method="post" class="row g-3">
-
-                    <div class="col-md-6">
-                        <label class="form-label">Conducteur</label>
-                        <select name="id_conducteur" class="form-select" required>
-                            <option value="">-- Choisir un conducteur --</option>
-                            <?php foreach ($conducteurs as $c): ?>
-                                <option value="<?= $c['id_conducteur'] ?>">
-                                    <?= $c['prenom'] . ' ' . $c['nom'] ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label class="form-label">Date</label>
-                        <input type="date" name="date_course" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label class="form-label">Heure départ</label>
-                        <input type="time" name="heure_depart" class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Lieu de départ</label>
-                        <input type="text" name="lieu_depart" class="form-control"
-                            placeholder="Ex : Andoharanofotsy" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Lieu d’arrivée</label>
-                        <input type="text" name="lieu_arrivee" class="form-control"
-                            placeholder="Ex : Analakely" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Kilométrage (km)</label>
-                        <input type="number" step="0.1" name="nb_kilometre"
-                            class="form-control" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label class="form-label">Prix de la course (Ar)</label>
-                        <input type="number" step="100" name="prix_course"
-                            class="form-control" required>
-                    </div>
-
-                    <div class="col-12 text-end">
-                        <button type="reset" class="btn btn-outline-secondary">
-                            <i class="bi bi-x-circle"></i> Annuler
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-check-circle"></i> Enregistrer
-                        </button>
-                    </div>
-
-                </form>
-
+                <i class="bi bi-list-check fs-1 text-primary"></i>
+                <h5 class="mt-3">Gestion des courses</h5>
+                <p class="text-muted">
+                    Créer, modifier et valider les courses des taxi-motos.
+                </p>
+                <a href="/course" class="btn btn-primary w-100">
+                    Accéder
+                </a>
             </div>
         </div>
+    </div>
 
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-calendar-week fs-1 text-success"></i>
+                <h5 class="mt-3">Planning moto</h5>
+                <p class="text-muted">
+                    Affecter les motos aux conducteurs par jour.
+                </p>
+                <a href="/planning-moto" class="btn btn-success w-100">
+                    Voir le planning
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-graph-up-arrow fs-1 text-warning"></i>
+                <h5 class="mt-3">Rapport financier</h5>
+                <p class="text-muted">
+                    Suivi des recettes, dépenses et bénéfices.
+                </p>
+                <a href="/rapport" class="btn btn-warning w-100 text-white">
+                    Consulter
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <p class="text-muted">
+            <strong>SpeedMoto</strong> vous aide à organiser efficacement les trajets,
+            optimiser les ressources et suivre les performances financières
+            de votre entreprise de taxi-moto.
+        </p>
     </div>
 </div>
