@@ -14,7 +14,7 @@
         <div class="row g-3">
 
             <div class="col-md-4">
-                <a href="/planning-moto"
+                <a href="/course/planning"
                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-calendar-week fs-1 text-primary"></i>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/liste"
+                <a href="/course/liste"
                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-card-list fs-1 text-success"></i>
@@ -40,7 +40,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="/nouvelle-course"
+                <a href="/course/nouvelle"
                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-plus-circle fs-1 text-warning"></i>
