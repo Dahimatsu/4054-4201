@@ -58,11 +58,22 @@ $router->group('', function (Router $router) use ($app) {
 
             $app->render('layout', ['page' => "detail.php", 'course' => $course]);
         });
-    });
 
-    $router->post('/inserer-course',function () use ($app) {
-        $courseController = new CourseController($app);
-        $courseController->insererCourse();
+        $router->post('/inserer', function () use ($app) {
+            $courseController = new CourseController($app);
+            $courseController->insererCourse();
+        });
+
+        $router->get("/modifier/@id", function ($id) use ($app) {
+            $courseController = new CourseController($app);
+            $course = $courseController->getCourse($id);
+            $app->render('layout', ['page' => "modifier.php", 'course' => $course]);
+        });
+
+        $router->post("/update/@id", function($id) use ($app) {
+            $courseController = new CourseController($app);
+            $courseController->modifierCourse($id);
+        }); 
     });
 
 }, [SecurityHeadersMiddleware::class]);

@@ -23,6 +23,14 @@ class CourseController
         Flight::redirect('/');
     }
 
+    public function modifierCourse($id)
+    {
+        $data = Flight::request()->data;
+        $courseModel = new CourseModel(Flight::db());
+        $courseModel->updateCourse($id, $data);
+        Flight::redirect('/course/detail/' . $id);
+    }
+
     public function getPlannings()
     {
         $courseModel = new CourseModel(Flight::db());
