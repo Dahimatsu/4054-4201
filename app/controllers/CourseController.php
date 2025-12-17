@@ -55,4 +55,10 @@ class CourseController
         $courseModel->validerCourse($id);
         Flight::redirect('/course/detail/' . $id);
     }
+
+    public function getRapport()
+    {
+        $courseModel = new CourseModel(Flight::db());
+        return $courseModel->getRapport();
+    }
 }

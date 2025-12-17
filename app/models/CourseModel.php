@@ -171,4 +171,19 @@ class CourseModel
         }
         return null;
     }
+
+    public function getRapport() {
+        $DBH = $this->getDatabase();
+
+        $query = "";
+
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute();
+            return $STH->fetchAll();
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
 }
