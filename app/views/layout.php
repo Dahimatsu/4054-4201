@@ -71,7 +71,7 @@
     <footer class="bg-dark text-white py-2 mt-auto">
         <div class="container text-center">
             <small class="text-white-50">
-                Projet Taxi-Moto – Examen S3 • ETU004054 & ETU004201 • Madagascar 🇲🇬
+                Projet Taxi-Moto – Examen S3 • ETU004054 & ETU004201
             </small>
         </div>
     </footer>

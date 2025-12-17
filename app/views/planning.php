@@ -19,13 +19,13 @@
       </div>
       <div class="card-body">
 
-        <?php if (!empty($error)): ?>
-          <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
-        <?php endif; ?>
+        <?php if (!empty($error)) { ?>
+          <div class="alert alert-danger"><?= $error ?></div>
+        <?php } ?>
 
-        <?php if (!empty($success)): ?>
-          <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
-        <?php endif; ?>
+        <?php if (!empty($success)) { ?>
+          <div class="alert alert-success"><?= $success ?></div>
+        <?php } ?>
 
         <form action="/planning-moto/store" method="post" class="row g-3">
 
@@ -40,7 +40,7 @@
               <option value="">-- Choisir une moto --</option>
               <?php foreach ($motos as $moto): ?>
                 <option value="<?= $moto['id_moto'] ?>">
-                  <?= htmlspecialchars($moto['marque'] . ' ' . $moto['modele']) ?>
+                  <?= $moto['marque'] . ' ' . $moto['modele'] ?>
                 </option>
               <?php endforeach; ?>
             </select>
@@ -52,7 +52,7 @@
               <option value="">-- Choisir un conducteur --</option>
               <?php foreach ($conducteurs as $c): ?>
                 <option value="<?= $c['id_conducteur'] ?>">
-                  <?= htmlspecialchars($c['prenom'] . ' ' . $c['nom']) ?>
+                  <?= $c['prenom'] . ' ' . $c['nom'] ?>
                 </option>
               <?php endforeach; ?>
             </select>
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <?php if (isset($plannings) && count($plannings) > 0): ?>
+    <?php if (isset($plannings) && count($plannings) > 0) { ?>
       <div class="card shadow-sm">
         <div class="card-header bg-dark text-white">
           <i class="bi bi-card-list me-1"></i> Plannings enregistrés
@@ -87,23 +87,23 @@
                 </tr>
               </thead>
               <tbody>
-                <?php foreach ($plannings as $p): ?>
+                <?php foreach ($plannings as $p) { ?>
                   <tr>
-                    <td><?= htmlspecialchars($p['date_planning']) ?></td>
-                    <td><?= htmlspecialchars($p['marque'] ?? '') ?> <?= htmlspecialchars($p['modele'] ?? '') ?></td>
-                    <td><?= htmlspecialchars($p['nom'] ?? '') ?> <?= htmlspecialchars($p['prenom'] ?? '') ?></td>
+                    <td><?= $p['date_planning'] ?></td>
+                    <td><?= $p['marque'] ?? '' ?> <?= $p['modele'] ?? '' ?></td>
+                    <td><?= $p['nom'] ?? '' ?> <?= $p['prenom'] ?? '' ?></td>
                   </tr>
-                <?php endforeach; ?>
+                <?php } ?>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    <?php else: ?>
+    <?php } else { ?>
       <div class="alert alert-info">
         Aucun planning enregistré pour le moment.
       </div>
-    <?php endif; ?>
+    <?php } ?>
 
   </div>
 </div>

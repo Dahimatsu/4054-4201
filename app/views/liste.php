@@ -50,8 +50,8 @@
                             $hdep = $c['heure_depart'] ?? '';
                             $harr = $c['heure_arrivee'] ?? null;
 
-                            $km   = (float)($c['nb_kilometre'] ?? 0);
-                            $prix = (float)($c['prix_course'] ?? 0);
+                            $km   = ($c['nb_kilometre'] ?? 0);
+                            $prix = ($c['prix_course'] ?? 0);
 
                             $moto = trim(($c['marque'] ?? '') . ' ' . ($c['modele'] ?? ''));
                             $conducteur = trim(($c['nom'] ?? '') . ' ' . ($c['prenom'] ?? ''));
@@ -61,28 +61,28 @@
                             $statut = $etat ? 'En cours' : 'Terminée';
                             $badge  = $etat ? 'bg-warning text-dark' : 'bg-success';
 
-                            $urlDetail    = "/course/detail/" . urlencode((string)$id);
-                            $urlEdit    = "/course/modifier/" . urlencode((string)$id);
-                            $urlValider = "/course/valider/" . urlencode((string)$id);
+                            $urlDetail    = "/course/detail/" . $id;
+                            $urlEdit    = "/course/modifier/" . $id;
+                            $urlValider = "/course/valider/" . $id;
                         ?>
                         <tr>
-                            <td class="fw-semibold"><?= htmlspecialchars($id) ?></td>
-                            <td><?= htmlspecialchars($date) ?></td>
-                            <td><?= htmlspecialchars($depart) ?></td>
-                            <td><?= htmlspecialchars($arrivee) ?></td>
+                            <td class="fw-semibold"><?= $id ?></td>
+                            <td><?= $date ?></td>
+                            <td><?= $depart ?></td>
+                            <td><?= $arrivee ?></td>
 
                             <td>
                                 <div class="small">
-                                    <span class="text-muted">Départ:</span> <?= htmlspecialchars($hdep) ?><br>
-                                    <span class="text-muted">Arrivée:</span> <?= htmlspecialchars($harr ?? '--:--') ?>
+                                    <span class="text-muted">Départ:</span> <?= $hdep ?><br>
+                                    <span class="text-muted">Arrivée:</span> <?= $harr ?? '--:--' ?>
                                 </div>
                                 <span class="badge <?= $badge ?> mt-1"><?= $statut ?></span>
                             </td>
 
                             <td class="text-end"><?= number_format($km, 1, ',', ' ') ?></td>
                             <td class="text-end fw-bold"><?= number_format($prix, 2, ',', ' ') ?> Ar</td>
-                            <td><?= htmlspecialchars($moto) ?></td>
-                            <td><?= htmlspecialchars($conducteur) ?></td>
+                            <td><?= $moto ?></td>
+                            <td><?= $conducteur ?></td>
 
                             <td class="text-center">
                                 <a href="<?= $urlDetail ?>" class="btn btn-sm btn-outline-primary" title="Voir">

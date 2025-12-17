@@ -1,6 +1,6 @@
 <?php
 function ar($n) {
-    $n = (float)($n ?? 0);
+    $n = ($n ?? 0);
     return number_format($n, 0, ',', ' ') . ' Ar';
 }
 
@@ -10,9 +10,9 @@ $totalBenefice = 0;
 
 if (!empty($coursesJour)) {
     foreach ($coursesJour as $row) {
-        $totalRecette  += (float)($row['recette'] ?? 0);
-        $totalDepenses += (float)($row['depense'] ?? 0);
-        $totalBenefice += (float)($row['benefice'] ?? (($row['recette'] ?? 0) - ($row['depense'] ?? 0)));
+        $totalRecette  += ($row['recette'] ?? 0);
+        $totalDepenses += ($row['depense'] ?? 0);
+        $totalBenefice += ($row['benefice'] ?? (($row['recette'] ?? 0) - ($row['depense'] ?? 0)));
     }
 }
 ?>
@@ -22,7 +22,7 @@ if (!empty($coursesJour)) {
         <h2 class="fw-bold mb-0">
             <i class="bi bi-receipt me-1"></i> Liste des courses par jour
         </h2>
-        <small class="text-muted">Date • Recette • Dépenses • Bénéfice</small>
+        <small class="text-muted">Recette • Dépenses • Bénéfice</small>
     </div>
 
     <a href="/courses" class="btn btn-outline-secondary">
@@ -82,9 +82,9 @@ if (!empty($coursesJour)) {
                     <?php if (!empty($coursesJour)): ?>
                         <?php foreach ($coursesJour as $row): ?>
                             <?php
-                                $recette  = (float)($row['recette'] ?? 0);
-                                $depense = (float)($row['depense'] ?? 0);
-                                $benefice = (float)($row['benefice'] ?? ($recette - $depense));
+                                $recette  = ($row['recette'] ?? 0);
+                                $depense = ($row['depense'] ?? 0);
+                                $benefice = ($row['benefice'] ?? ($recette - $depense));
                             ?>
                             <tr>
                                 <td class="fw-semibold"><?= htmlspecialchars($row['date'] ?? '') ?></td>
