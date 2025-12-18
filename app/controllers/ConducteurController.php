@@ -21,6 +21,18 @@ class ConducteurController
         return $conducteurModel->getConducteurs();
     }
 
+    public function getConducteursDispo()
+    {
+        $conducteurModel = new ConducteurModel(Flight::db());
+        $ret = $conducteurModel->getConducteursDispo();
+
+        if(count($ret) > 0){
+            return $ret;
+        } else {
+            Flight::redirect('/course/conducteur-error');
+        }
+    }
+
     public function getConducteur($id)
     {
         $conducteurModel = new ConducteurModel(Flight::db());

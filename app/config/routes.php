@@ -40,7 +40,7 @@ $router->group('', function (Router $router) use ($app) {
 
         $router->get('/nouvelle',function () use ($app) {
             $conducteurController = new ConducteurController($app);
-            $conducteurs = $conducteurController->getConducteurs();
+            $conducteurs = $conducteurController->getConducteursDispo();
     
             $app->render('layout', ['page' => "inserer-course.php", 'conducteurs' => $conducteurs]);
         });
@@ -62,6 +62,20 @@ $router->group('', function (Router $router) use ($app) {
         $router->post('/inserer', function () use ($app) {
             $courseController = new CourseController($app);
             $courseController->insererCourse();
+        });
+
+        $router->get('/insert-error', function () use ($app) {
+            $courseController = new CourseController($app);
+            $courses = $courseController->getCourses();
+
+            $app->render('layout', ['page' => "liste.php", 'message' => "La course n'a pas pu être insérée. Veuillez réessayer.", 'courses' => $courses]);
+        });
+
+        $router->get('/conducteur-error', function () use ($app) {
+            $courseController = new CourseController($app);
+            $courses = $courseController->getCourses();
+
+            $app->render('layout', ['page' => "liste.php", 'message' => "Aucun conducteur disponible pour le moment. Veuillez réessayer plus tard.", 'courses' => $courses]);
         });
 
         $router->get("/modifier/@id", function ($id) use ($app) {

@@ -242,3 +242,12 @@ SELECT
     (rj.recette_totale - dj.depense_totale) AS benefice
 FROM v_recette_journaliere rj
 JOIN v_depense_journaliere dj ON rj.date_course = dj.date_course;
+
+CREATE OR REPLACE VIEW v_conducteurs_disponibles AS
+SELECT *
+FROM s3_conducteurs
+WHERE id_conducteur NOT IN (
+    SELECT id_conducteur
+    FROM s3_course
+    WHERE heure_arrivee IS NULL
+);

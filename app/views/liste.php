@@ -1,3 +1,11 @@
+<?php if(isset($message)) { ?>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <div>
+            <?= $message ?>
+        </div>
+    </div>
+<?php } ?>
 <div class="d-flex align-items-center justify-content-between mb-3">
     <div>
         <h2 class="fw-bold mb-0">

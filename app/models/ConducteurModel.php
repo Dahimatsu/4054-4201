@@ -41,6 +41,25 @@ class ConducteurModel {
 
     }
 
+    public function getConducteursDispo()
+    {
+        $DBH = $this->getDatabase();
+
+        $query = "SELECT *
+                  FROM v_conducteurs_disponibles";
+
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute();
+
+            return $STH->fetchAll();
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+
+    }
+
     public function getConducteur($id)
     {
         $DBH = $this->getDatabase();

@@ -33,7 +33,8 @@ class CourseModel
                   JOIN s3_motos m 
                   ON c.id_moto = m.id_moto 
                   JOIN s3_conducteurs cd 
-                  ON c.id_conducteur = cd.id_conducteur";
+                  ON c.id_conducteur = cd.id_conducteur
+                  ORDER BY c.date_course DESC";
 
         try {
             $STH = $DBH->prepare($query);
@@ -68,6 +69,23 @@ class CourseModel
         }
     }
 
+    public function getLastId() {
+        $DBH = $this->getDatabase();
+
+        $query = "SELECT MAX(id_course) AS last_id
+                  FROM s3_course";
+
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute();
+            $result = $STH->fetch();
+            return $result['last_id'];
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
+
     public function insertCourse($course) {
         $motoModeml = new MotoModel($this->getDatabase());
         $idMoto = $motoModeml->getidMotoByConducteur($course['id_conducteur']);
@@ -85,18 +103,25 @@ class CourseModel
                     prix_course
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = $DBH->prepare($sql);
+        try {
 
-        $stmt->execute([
-                $idMoto['id_moto'],
-                $course['id_conducteur'],
-                $course['date_course'],
-                $course['lieu_depart'],
-                $course['heure_depart'],
-                $course['lieu_arrivee'],
-                $course['nb_kilometre'],
-                $course['prix_course']
-                ]);
+            $stmt = $DBH->prepare($sql);
+    
+            $stmt->execute([
+                    $idMoto['id_moto'],
+                    $course['id_conducteur'],
+                    $course['date_course'],
+                    $course['lieu_depart'],
+                    $course['heure_depart'],
+                    $course['lieu_arrivee'],
+                    $course['nb_kilometre'],
+                    $course['prix_course']
+                    ]);
+            
+        } catch (\Throwable $th) {
+            error_log($th->getMessage());
+            throw $th;
+        }
     }
 
     public function getPlanning() {

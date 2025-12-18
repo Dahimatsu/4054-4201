@@ -20,7 +20,11 @@ class CourseController
         $data = Flight::request()->data;
         $courseModel = new CourseModel(Flight::db());
         $courseModel->insertCourse($data);
-        Flight::redirect('/');
+        $id = $courseModel->getLastId();
+        if($id === null){
+            Flight::redirect('/course/insert-error');
+        }
+        Flight::redirect('/course/detail/' . $id);
     }
 
     public function modifierCourse($id)
