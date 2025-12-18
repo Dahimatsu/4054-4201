@@ -128,7 +128,16 @@ $router->group('', function (Router $router) use ($app) {
 
             $router->post('/valider/', function () use ($app) {
                 $courseController = new CourseController($app);
-                $courseController->deleteAllCourse();
+                if ($courseController->verifyMotDePasse()) {
+                    $courseController->deleteAllCourses();
+                } else {
+                    Flight::redirect('/course/delete/error');
+
+                }
+            });
+
+            $router->get('/error', function () use ($app) {
+                $app->render('layout', ['page' => "course.php", 'delete' => true, 'message' => "Mot de passe incorrect."]);
             });
         });
 

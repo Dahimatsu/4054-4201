@@ -66,6 +66,14 @@ class CourseController
         return $courseModel->getRapport();
     }
 
+    public function verifyMotDePasse() {
+        $motDePasse = Flight::request()->data;
+        if ($motDePasse['password'] === '1234') {
+            return true;
+        }
+        return false;   
+    }
+
     public function deleteAllCourses() {
         $courseModel = new CourseModel(Flight::db());
         $courseModel->deleteAllCourses();
