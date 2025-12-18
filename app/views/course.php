@@ -28,7 +28,7 @@
             
             <div class="col-md-4">
                 <a href="/course/liste"
-                    class="card text-decoration-none h-100 shadow-sm border-0 text-center">
+                   class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-card-list fs-1 text-success"></i>
                         <h5 class="mt-3">Liste des courses</h5>
@@ -41,7 +41,7 @@
 
             <div class="col-md-4">
                 <a href="/course/planning"
-                class="card text-decoration-none h-100 shadow-sm border-0 text-center">
+                   class="card text-decoration-none h-100 shadow-sm border-0 text-center">
                     <div class="card-body">
                         <i class="bi bi-calendar-week fs-1 text-primary"></i>
                         <h5 class="mt-3">Planning moto</h5>
@@ -52,6 +52,49 @@
                 </a>
             </div>
 
+        </div>
+
+        <hr class="my-5">
+
+        <div class="card border-danger shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-trash3-fill fs-1 text-danger"></i>
+                <h5 class="mt-3 text-danger fw-bold">
+                    Supprimer toutes les courses
+                </h5>
+                <p class="text-muted small">
+                    Cette action est <strong>irréversible</strong>.
+                    Toutes les courses enregistrées seront définitivement supprimées.
+                </p>
+
+                <a href="/course/delete"
+                   class="btn btn-danger">
+                    <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                    Supprimer toutes les courses
+                </a>
+                <?php if(isset($delete)) { ?>
+                    <form action="/course/delete/valider" method="post" class="row justify-content-center">
+
+                        <div class="col-md-6">
+                            <label class="form-label visually-hidden">Mot de passe</label>
+                            <input type="password"
+                                name="delete_password"
+                                class="form-control text-center"
+                                placeholder="Mot de passe de validation"
+                                required>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <button type="submit"
+                                    class="btn btn-danger">
+                                <i class="bi bi-trash3-fill me-1"></i>
+                                Confirmer la suppression
+                            </button>
+                        </div>
+
+                    </form>
+                <?php } ?>
+            </div>
         </div>
 
     </div>

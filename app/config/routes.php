@@ -94,7 +94,7 @@ $router->group('', function (Router $router) use ($app) {
             $courseController = new CourseController($app);
             $courses = $courseController->getCourses();
 
-            $app->render('layout', ['page' => "liste.php", 'message' => "Aucun conducteur disponible pour le moment. Veuillez réessayer plus tard.", 'courses' => $courses]);
+            $app->render('layout', ['page' => "liste.php", 'message' => "Aucun conducteur disponible pour le moment ou aucun conducteur dans le planning.", 'courses' => $courses]);
         });
 
         $router->get("/modifier/@id", function ($id) use ($app) {

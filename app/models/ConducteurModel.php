@@ -79,4 +79,23 @@ class ConducteurModel {
             throw $e;
         }
     }
+
+    public function verifyPlanningDispo() {
+        $DBH = $this->getDatabase();
+
+        $query = "SELECT count(*) as total
+                  FROM s3_planning_moto";
+
+        try {
+            
+            $STH = $DBH->prepare($query);
+            $STH->execute();
+            $ret = $STH->fetch();
+            return $ret['total'] > 0;
+
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            throw $e;
+        }
+    }
 }
