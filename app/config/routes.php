@@ -38,6 +38,25 @@ $router->group('', function (Router $router) use ($app) {
             $app->render('layout', ['page' => "planning.php", 'conducteurs' => $conducteurs, 'motos' => $motos, 'plannings' => $plannings]);
         });
 
+        $router->get('/planning-error', function () use ($app) {
+            $conducteurController = new ConducteurController($app);
+            $conducteurs = $conducteurController->getConducteurs();
+
+            $motoController = new MotoController($app);
+            $motos = $motoController->getMotos();
+
+            $courseController = new CourseController($app);
+            $plannings = $courseController->getPlannings();
+            $app->render('layout', ['page' => "planning.php", 'conducteurs' => $conducteurs, 'motos' => $motos, 'plannings' => $plannings, 'message' => "Un conducteur ne peut pas changer de moto plus d'une fois par jour."]);
+        });
+
+        $router->post('/add-planning', function () use ($app) {
+
+            $motoController = new MotoController($app);
+            $motoController->insererPlanning();
+
+        });
+
         $router->get('/nouvelle',function () use ($app) {
             $conducteurController = new ConducteurController($app);
             $conducteurs = $conducteurController->getConducteursDispo();

@@ -1,3 +1,11 @@
+<?php if(isset($message)) { ?>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <div>
+            <?= $message ?>
+        </div>
+    </div>
+<?php } ?>
 <div class="row justify-content-center">
   <div class="col-lg-9">
 
@@ -27,7 +35,7 @@
           <div class="alert alert-success"><?= $success ?></div>
         <?php } ?>
 
-        <form action="/planning-moto/store" method="post" class="row g-3">
+        <form action="/course/add-planning" method="post" class="row g-3">
 
           <div class="col-md-4">
             <label class="form-label">Date</label>

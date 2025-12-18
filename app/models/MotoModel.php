@@ -78,4 +78,40 @@ class MotoModel
             throw $e;
         }
     }
+
+    public function verifyPlanning($id_conducteur, $date_planning) {
+        $DBH = $this->getDatabase();
+
+        $query = "SELECT COUNT(*) as count
+                  FROM s3_planning_moto
+                  WHERE id_conducteur = ? AND date_planning = ?";
+
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute([$id_conducteur, $date_planning]);
+            $result = $STH->fetch();
+            return $result['count'] > 0;
+        } catch (PDOException $e) {
+            error_log("Erreur : " . $e->getMessage());
+            throw $e;
+        }
+    }
+
+    public function insererPlanning($data) {
+        $DBH = $this->getDatabase();
+
+        $query = "INSERT INTO s3_planning_moto (id_moto, id_conducteur, date_planning)
+                  VALUES (?, ?, ?)";
+        try {
+            $STH = $DBH->prepare($query);
+            $STH->execute([
+                $data['id_moto'],
+                $data['id_conducteur'],
+                $data['date_planning']
+            ]);
+        } catch (PDOException $e) {
+            error_log("Erreur : " . $e->getMessage());
+            throw $e;
+        }
+    }
 }

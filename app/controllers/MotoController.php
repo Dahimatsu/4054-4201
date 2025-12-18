@@ -22,4 +22,15 @@ class MotoController
         $motoModel = new MotoModel(Flight::db());
         return $motoModel->getMoto($id);
     }
+
+    public function insererPlanning(){
+        $data = Flight::request()->data;
+        $motoModel = new MotoModel(Flight::db());
+        if($motoModel->verifyPlanning($data['id_conducteur'], $data['date_planning']) === false){
+            $motoModel->insererPlanning($data);
+            Flight::redirect('/course/planning');
+        } else {
+            Flight::redirect('/course/planning-error');
+        }
+    }
 }
