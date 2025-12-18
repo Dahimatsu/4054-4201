@@ -1,6 +1,6 @@
-CREATE DATABASE taximoto;
+CREATE DATABASE 4054_4201_taximoto;
 
-USE taximoto;
+USE 4054_4201_taximoto;
 
 -- 1.a Carburant
 CREATE TABLE s3_carburant (
