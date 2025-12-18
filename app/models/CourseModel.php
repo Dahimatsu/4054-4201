@@ -176,7 +176,8 @@ class CourseModel
         $DBH = $this->getDatabase();
 
         $query = "SELECT * 
-                  FROM v_rapport_journalier";
+                  FROM v_rapport_journalier
+                  ORDER BY date DESC";
 
         try {
             $STH = $DBH->prepare($query);
