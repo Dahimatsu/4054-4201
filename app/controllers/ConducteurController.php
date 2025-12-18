@@ -26,7 +26,7 @@ class ConducteurController
         $conducteurModel = new ConducteurModel(Flight::db());
         $ret = $conducteurModel->getConducteursDispo();
 
-        if(count($ret) > 0){
+        if(count($ret) > 0 && $conducteurModel->verifyPlanningDispo() === true){
             return $ret;
         } else {
             Flight::redirect('/course/conducteur-error');

@@ -95,54 +95,74 @@ INSERT INTO s3_prix_carburant (id_carburant, prix, date_carburant) VALUES
 (2, 4950.00, '2025-12-10'); -- Gasoil
 
 INSERT INTO s3_motos (marque, modele, id_carburant) VALUES
-('Yamaha', 'Crypton 110', 1),
-('Honda', 'Wave 110', 1),
-('TVS', 'HLX 125', 1);
+('Yamaha', 'Crypton', 1),
+('Yamaha', 'Crypton', 1),
+('Honda', 'Wave', 1),
+('Honda', 'Wave', 1),
+
+('Honda', 'Scoopy', 1),
+('Honda', 'Scoopy', 1),
+
+('Suzuki', 'Smash', 1),
+('Suzuki', 'Smash', 1),
+('Bajaj', 'Boxer', 1),
+('Bajaj', 'Boxer', 1);
+
+INSERT INTO s3_consommation (id_moto, consommation, date_consommation) VALUES
+-- 4 motos à 2 L / 100
+(1, 2.0, '2025-01-01'),
+(2, 2.0, '2025-01-01'),
+(3, 2.0, '2025-01-01'),
+(4, 2.0, '2025-01-01'),
+
+-- 2 motos à 1.6 L / 100
+(5, 1.6, '2025-01-01'),
+(6, 1.6, '2025-01-01'),
+
+-- 4 motos à 1.3 L / 100
+(7, 1.3, '2025-01-01'),
+(8, 1.3, '2025-01-01'),
+(9, 1.3, '2025-01-01'),
+(10,1.3, '2025-01-01');
+
+INSERT INTO s3_entretien (id_moto, pourcentage, date_entretien) VALUES
+-- 4 motos à 10 %
+(1, 10.0, '2025-01-01'),
+(2, 10.0, '2025-01-01'),
+(3, 10.0, '2025-01-01'),
+(4, 10.0, '2025-01-01'),
+
+-- 2 motos à 15 %
+(5, 15.0, '2025-01-01'),
+(6, 15.0, '2025-01-01'),
+
+-- 4 motos à 11.5 %
+(7, 11.5, '2025-01-01'),
+(8, 11.5, '2025-01-01'),
+(9, 11.5, '2025-01-01'),
+(10,11.5,'2025-01-01');
 
 INSERT INTO s3_conducteurs (nom, prenom) VALUES
 ('Rakoto', 'Jean'),
 ('Rabe', 'Mamy'),
-('Andrianina', 'Tiana');
-
-INSERT INTO s3_consommation (id_moto, consommation, kilometrage, date_consommation) VALUES
-(1, 2.3, 100, '2025-12-01'),
-(2, 2.5, 100, '2025-12-01'),
-(3, 2.8, 100, '2025-12-01');
+('Randria', 'Tiana'),
+('Andry', 'Hery'),
+('Rasoanaivo', 'Feno'),
+('Razafy', 'Toky');
 
 INSERT INTO s3_salaire (id_conducteur, pourcentage, date_salaire) VALUES
-(1, 35.00, '2025-12-01'),
-(2, 30.00, '2025-12-01'),
-(3, 40.00, '2025-12-01');
+-- 2 chauffeurs à 15 %
+(1, 15.0, '2025-01-01'),
+(2, 15.0, '2025-01-01'),
 
-INSERT INTO s3_entretien (id_moto, pourcentage, date_entretien) VALUES
-(3, 11.00, '2025-12-09');
-(2, 8.00,  '2025-12-01'),
-(3, 12.00, '2025-12-01');
+-- 2 chauffeurs à 25 %
+(3, 25.0, '2025-01-01'),
+(4, 25.0, '2025-01-01'),
 
-INSERT INTO s3_course (
-    id_moto, id_conducteur, date_course,
-    lieu_depart, heure_depart,
-    lieu_arrivee, heure_arrivee,
-    nb_kilometre, prix_course
-) VALUES
-(1, 1, '2025-12-10', 'Andoharanofotsy', '08:15:00', 'Anosy', '08:35:00', 6.5, 7000.00),
-(2, 2, '2025-12-10', 'Ambohibao', '09:00:00', 'Analakely', '09:30:00', 8.0, 9000.00),
-(3, 3, '2025-12-10', 'Itaosy', '10:10:00', '67 Ha', '10:40:00', 9.2, 10000.00),
-(1, 2, '2025-12-10', 'Ankorondrano', '14:00:00', 'Ivandry', '14:15:00', 3.5, 4000.00),
-(2, 1, '2025-12-10', 'Analamahitsy', '16:20:00', 'Behoririka', '16:45:00', 5.0, 6000.00);
+-- 2 chauffeurs à 19.5 %
+(5, 19.5, '2025-01-01'),
+(6, 19.5, '2025-01-01');
 
-INSERT INTO s3_planning_moto (id_moto, id_conducteur, date_planning) VALUES
-(1, 1, '2025-12-15'),
-(2, 2, '2025-12-15'),
-(3, 3, '2025-12-15'),
-
-(1, 2, '2025-12-16'),
-(2, 3, '2025-12-16'),
-(3, 1, '2025-12-16'),
-
-(1, 3, '2025-12-17'),
-(2, 1, '2025-12-17'),
-(3, 2, '2025-12-17');
 
 CREATE OR REPLACE VIEW v_course_details AS
 SELECT
@@ -251,3 +271,24 @@ WHERE id_conducteur NOT IN (
     FROM s3_course
     WHERE heure_arrivee IS NULL
 );
+
+DELETE FROM s3_motos;
+ALTER TABLE s3_motos AUTO_INCREMENT = 1;
+
+DELETE FROM s3_conducteurs;
+ALTER TABLE s3_conducteurs AUTO_INCREMENT = 1;
+
+DELETE FROM s3_course;
+ALTER TABLE s3_course AUTO_INCREMENT = 1;
+
+DELETE FROM s3_consommation;
+ALTER TABLE s3_consommation AUTO_INCREMENT = 1;
+
+DELETE FROM s3_salaire;
+ALTER TABLE s3_salaire AUTO_INCREMENT = 1;
+
+DELETE FROM s3_entretien;
+ALTER TABLE s3_entretien AUTO_INCREMENT = 1;
+
+DELETE FROM s3_planning_moto;
+ALTER TABLE s3_planning_moto AUTO_INCREMENT = 1;
