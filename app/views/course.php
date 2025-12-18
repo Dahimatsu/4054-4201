@@ -52,6 +52,19 @@
                 </a>
             </div>
 
+            <div class="col-md-4 offset-md-4">
+                <a href="/carburant"
+                class="card text-decoration-none h-100 shadow-sm border-0 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-fuel-pump fs-1 text-danger"></i>
+                        <h5 class="mt-3">Modifier prix carburant</h5>
+                        <p class="text-muted small">
+                            Mise à jour du prix du carburant
+                        </p>
+                    </div>
+                </a>
+            </div>
+
         </div>
 
         <hr class="my-5">
@@ -67,13 +80,9 @@
                     Toutes les courses enregistrées seront définitivement supprimées.
                 </p>
 
-                <a href="/course/delete"
-                   class="btn btn-danger">
-                    <i class="bi bi-exclamation-triangle-fill me-1"></i>
-                    Supprimer toutes les courses
-                </a>
                 <?php if(isset($delete)) { ?>
-                    <form action="/course/delete/valider" method="post" class="row justify-content-center">
+                    
+                    <form action="/course/delete/valider" method="post" class="row justify-content-center py-4">
 
                         <div class="col-md-6">
                             <label class="form-label visually-hidden">Mot de passe</label>
@@ -93,6 +102,12 @@
                         </div>
 
                     </form>
+                <?php } else { ?>
+                    <a href="/course/delete"
+                    class="btn btn-danger">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                        Supprimer toutes les courses
+                    </a>
                 <?php } ?>
             </div>
         </div>
