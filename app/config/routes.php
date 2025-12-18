@@ -3,6 +3,7 @@
 use app\controllers\ConducteurController;
 use app\controllers\MotoController;
 use app\controllers\CourseController;
+use app\controllers\CarburantController;
 
 use app\middlewares\SecurityHeadersMiddleware;
 use flight\Engine;
@@ -127,6 +128,31 @@ $router->group('', function (Router $router) use ($app) {
         $courses = $courseController->getRapport();
 
         $app->render('layout', ['page' => "rapport.php", 'coursesJour' => $courses]);
+    });
+
+    $router->group('/carburant', function () use ($router, $app) {
+        $router->get('/', function () use ($app) {
+            $carburantController = new CarburantController($app);
+            $carburants = $carburantController->getCarburants();
+
+            $app->render('layout', ['page' => "carburant.php", 'carburants' => $carburants]);
+        });
+        
+        $router->post('/modifier', function () use ($app) {
+            $carburantController = new CarburantController($app);
+            $carburantController->modifyCarburant();
+        });
+
+        $router->group('/delete', function () use ($router, $app) {
+            $router->get('/', function ($id) use ($app) {
+                $app->render('layout', ['page' => "course.php", 'delete' => true]);
+            });
+
+            $router->post('/valider/', function ($id) use ($app) {
+                $courseController = new CourseController($app);
+                $courseController->deleteAllCourse();
+            });
+        });
     });
 
 }, [SecurityHeadersMiddleware::class]);
